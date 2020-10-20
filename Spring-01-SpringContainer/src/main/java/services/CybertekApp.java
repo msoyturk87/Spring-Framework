@@ -7,8 +7,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CybertekApp {
     public static void main(String[] args) {
-        //BeanFactory container=new ClassPathXmlApplicationContext("config.xml");
-        ApplicationContext container=new ClassPathXmlApplicationContext("config.xml");
+        BeanFactory container=new ClassPathXmlApplicationContext("config.xml");
+        //ApplicationContext container=new ClassPathXmlApplicationContext("config.xml");
 
         //Way 1
         Mentor mentor=(Mentor)container.getBean("fullTimeMentor");
