@@ -11,5 +11,6 @@ public class CybertekApp {
         course.getTeachingHours();
         ((ClassPathXmlApplicationContext)container).close();
         // After close destroy is working
+        // After close destroy is working
     }
 }
