@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+
 public class Java implements Course {
 
-    @Autowired
+    @Autowired  // if no annotations it takes automatically take it as a DI
     public Java(ExtraSessions extraSessions) {
         this.extraSessions = extraSessions;
     }
-
+    // Also it can work with Lombok annotation @Autowired
     private ExtraSessions extraSessions;
     @Override
     public void getTeachingHours() {
