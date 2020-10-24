@@ -4,13 +4,10 @@ import com.cybertek.interfaces.Course;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Java implements Course {
-
-
+public class Selenium implements Course {
     @Override
     public void getTeachingHours() {
-        System.out.println("Weekly Teaching Java 30 hours");
+        System.out.println("Weekly Teaching Selenium  20 hours");
+
     }
-
-
 }
