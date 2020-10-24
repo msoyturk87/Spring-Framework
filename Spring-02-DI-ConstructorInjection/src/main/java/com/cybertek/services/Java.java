@@ -5,7 +5,6 @@ import com.cybertek.interfaces.ExtraSessions;
 
 public class Java implements Course {
 
-    OfficeHours officeHours;
     ExtraSessions extraSessions;
 
 
