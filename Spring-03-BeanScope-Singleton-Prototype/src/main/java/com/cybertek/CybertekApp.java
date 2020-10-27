@@ -20,7 +20,7 @@ public class CybertekApp {
         System.out.println(course1+" course 1");
         System.out.println(course2+" course 2");
 
-        // Study about prototype and singleton
+        // Study about prototype and singleton change your scope="singleton">
 
 
 
