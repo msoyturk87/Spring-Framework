@@ -22,6 +22,7 @@ public class Calculator {
     @Autowired
     private Floor floor;
 
+
     public String getTotalCarpetCost(City city) throws Exception {
 
         BigDecimal cost=carpet.getSqFtPrice(city).multiply(floor.getArea());
