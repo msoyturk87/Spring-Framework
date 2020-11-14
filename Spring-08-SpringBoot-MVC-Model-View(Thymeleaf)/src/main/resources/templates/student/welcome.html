@@ -24,6 +24,24 @@
             <!--Link-->
             <a th:href="@{/student/register}" target="_blank">Register</a>
 
+    <!--Adding parameeters to Link-->
+
+    <a th:href="@{/student/welcome(id=3)}" target="_blank">HardCoded</a>
+    <a th:href="@{/student/welcome(id=${student.id})}" target="_blank">Dynamic</a>
+
+    <!--Iteration -->
+
+    <ul></ul>
+        <li th:each="number :${numbers}" th:text="${number}"></li>
+    <ul></ul>
+
+    <!--Fragment -->
+
+    <div th:replace="fragments/footer::a">
+
+
+
+
 
 
 </body>
