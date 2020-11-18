@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+MENTOR REGISTRATION
+<div align="center">
+<form th:object="${mentor}">
+
+    <label >FirstName : </label>
+    <input type="text" id="firstname" th:field="*{firstName}"><br>
+
+    <label >LastName : </label>
+    <input type="text" id="lastname"th:field="*{lastName}"><br>
+
+    <label >Email : </label>
+    <input type="text" id="email"th:field="*{email}"><br>
+
+    <label >Gender : </label>
+    <input type="radio" value="Male"th:field="*{gender}">Male<br>
+    <input type="radio" value="Female"th:field="*{gender}">Female<br>
+
+
+    <label >Graduated : </label>
+    <input type="checkbox" id="graduated"th:field="*{graduated}"><br>
+
+    <label >Company : </label>
+    <textarea th:field="*{company}"></textarea><br>
+
+    <label >Batch : </label>
+    <select th:field="*{batch}" >
+        <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
+    </select><br>
+
+    <button type="submit">Register </button>
+
+
+
+
+</form>
+
+    <label >Batch : </label>
+    <select th:field="*{batch}" >
+        <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
+    </select><br>
+</div>
+
+</body>
+</html>
