@@ -2,6 +2,8 @@ package com.cybertek.model;
 
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -14,7 +16,7 @@ public class Mentor {
     private String email;
     private String gender;
     private boolean graduated;
-    private String batch;
+    private List<String> batch;
     private String company;
 
 }

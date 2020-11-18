@@ -9,7 +9,7 @@
 
 MENTOR REGISTRATION
 <div align="center">
-<form th:object="${mentor}">
+<form action="/mentor/confirm" method="post" th:object="${mentor}">
 
     <label >FirstName : </label>
     <input type="text" id="firstname" th:field="*{firstName}"><br>
@@ -31,22 +31,21 @@ MENTOR REGISTRATION
     <label >Company : </label>
     <textarea th:field="*{company}"></textarea><br>
 
+
+<!--    // try it again it is not working-->
+
     <label >Batch : </label>
     <select th:field="*{batch}" >
-        <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
+        <option th:each="theBatch :${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
     </select><br>
 
-    <button type="submit">Register </button>
+    <button type="submit">Register</button>
 
 
 
 
 </form>
 
-    <label >Batch : </label>
-    <select th:field="*{batch}" >
-        <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
-    </select><br>
 </div>
 
 </body>
