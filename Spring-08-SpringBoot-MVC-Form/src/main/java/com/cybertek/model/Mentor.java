@@ -16,7 +16,7 @@ public class Mentor {
     private String email;
     private String gender;
     private boolean graduated;
-    private List<String> batch;
+    private List <String> batch;
     private String company;
 
 }

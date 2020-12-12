@@ -28,10 +28,6 @@ public class MentorController {
     @PostMapping ("/confirm")
     public String submitForm(@ModelAttribute("mentor") Mentor mentor){
 
-        System.out.println(mentor.toString());
-
-
-
         return "mentor/mentor-confirm";
     }
 }
