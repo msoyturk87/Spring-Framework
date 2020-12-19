@@ -25,6 +25,7 @@ public class Post {
     @JoinTable(name="post_tag_rel",
             joinColumns = {@JoinColumn(name="post_id")},inverseJoinColumns ={@JoinColumn(name ="tag_id")})
     private Set<Tag> tags = new HashSet<>();
+    // To increase performance and to do it professionaly we can use SET. But List is working too
 
 
 
