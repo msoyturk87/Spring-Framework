@@ -6,11 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,15 +19,34 @@ public class Movie extends BaseEntity {
 
     private String name;
     @Column(columnDefinition = "DATE")
-
     private Integer duration;
 
     @Column(columnDefinition = "text")
     private String summary;
+
     @Enumerated(EnumType.STRING)
     private MovieType type;
+
     @Enumerated(EnumType.STRING)
     private MovieState state;
+
     private BigDecimal price;
 
+    @ManyToMany()
+    @JoinTable(name = "movie_genre_rel",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name="genre_id"))
+    private List<Genre> genreList=new ArrayList<>();
+
+
+
+
+    public Movie(String name, Integer duration, String summary, MovieType type, MovieState state, BigDecimal price) {
+        this.name = name;
+        this.duration = duration;
+        this.summary = summary;
+        this.type = type;
+        this.state = state;
+        this.price = price;
+    }
 }
