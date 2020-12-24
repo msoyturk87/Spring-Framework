@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//@Entity(name="Employess")  -- We can change Entity name but it is unnecessary
 @Entity
 @Table(name = "departments")
 @Getter
