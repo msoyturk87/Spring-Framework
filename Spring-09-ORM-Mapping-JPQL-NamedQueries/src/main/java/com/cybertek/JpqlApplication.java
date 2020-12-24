@@ -27,7 +27,8 @@ public class JpqlApplication {
 		System.out.println("employeeRepository.getEmployeeDetail() = " + employeeRepository.getEmployeeDetail());
 		System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary());
 		System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary("Trail"));
-
+		employeeRepository.updateEmployeeJPQL(1);
+		System.out.println("employeeRepository.retrieveEmployeeSalaryGreaterThan(82000) = " + employeeRepository.retrieveEmployeeSalaryGreaterThan(82000));
 	}
 
 }

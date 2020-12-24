@@ -2,11 +2,13 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.NamedQuery;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -83,10 +85,20 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query("SELECT e FROM Employee e ORDER BY e.salary DESC ")
     List<Employee> getEmployeeBySalaryOrderByDesc();
 
-
     //Native Query
     @Query(value = "SELECT * FROM employees WHERE salary = ?1",nativeQuery = true )
     List<Employee> readEmployeeBySalary(int salary);
 
+    @Modifying
+    @Transactional
+    @Query("UPDATE Employee e SET e.email ='admin@email.com' WHERE e.id=:id")
+    void updateEmployeeJPQL(@Param("id") Integer id);
 
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE employees SET email='admin@email.com' WHERE id=:id",nativeQuery = true)
+    void updateEmployeeNativeQuery(@Param("id") Integer id);
+
+    //Named Query
+    List<Employee> retrieveEmployeeSalaryGreaterThan(Integer salary);
 }
