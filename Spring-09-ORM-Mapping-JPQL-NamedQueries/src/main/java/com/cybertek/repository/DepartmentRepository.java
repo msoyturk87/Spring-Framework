@@ -21,7 +21,7 @@ public interface DepartmentRepository extends JpaRepository<Department,String> {
     List<Department> retrieveDepartmentByDivisionContains(String pattern);
 
     List<Department> findOzzyDepartment(String division);
-
+    List<Department> countAllDepartments();
 
 
 }

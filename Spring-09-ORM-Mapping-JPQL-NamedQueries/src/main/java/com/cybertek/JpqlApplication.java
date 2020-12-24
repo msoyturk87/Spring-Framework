@@ -30,7 +30,7 @@ public class JpqlApplication {
 		employeeRepository.updateEmployeeJPQL(1);
 		System.out.println("employeeRepository.retrieveEmployeeSalaryGreaterThan(82000) = " + employeeRepository.retrieveEmployeeSalaryGreaterThan(82000));
 		System.out.println("departmentRepository.findOzzyDepartment(1) = " + departmentRepository.findOzzyDepartment("Kids"));
-
+		System.out.println("departmentRepository.countAllDepartments() = " + departmentRepository.countAllDepartments());
 	}
 
 }
