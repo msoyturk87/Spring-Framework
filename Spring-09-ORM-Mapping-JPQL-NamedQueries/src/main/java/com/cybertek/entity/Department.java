@@ -7,7 +7,11 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+
+
 
 //@Entity(name="Employess")  -- We can change Entity name but it is unnecessary
 @Entity
@@ -16,6 +20,8 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @ToString
+@NamedQuery(name="Department.findOzzyDepartment",
+            query="SELECT d FROM Department d WHERE d.division=?1")
 public class Department {
     @Id
     private String department;
