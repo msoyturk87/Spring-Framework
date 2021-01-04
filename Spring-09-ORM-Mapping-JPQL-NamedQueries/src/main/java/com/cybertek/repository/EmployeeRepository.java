@@ -18,12 +18,14 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query("SELECT e FROM  Employee e WHERE e.email='dtrail8@tamu.edu'")
     Employee getEmployeeDetail();
     // name can be different but to understand what to do we are following naming convention
+    // Employee should be  Entity name but we can change it from entity
+    // @Entity(name="Employess")  -- We can change Entity name but it is unnecessary
 
     @Query("SELECT e.salary FROM  Employee e WHERE e.lastName='Trail' ")
     Integer getEmployeeSalary();
 
     //Dynamic way to write NamedQueries
-    // 1--BINDING
+    // 1-- POSITIONAL PARAMETERS
     //single bind parameter
     @Query("SELECT e.salary FROM  Employee e WHERE e.lastName=?1 ")
     Integer getEmployeeSalary(String lastname);
@@ -35,7 +37,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query("SELECT e FROM Employee e WHERE e.email=?1 AND e.salary=?2")
     Employee getEmployeeByEmailAndSalary(String email,int salary);
 
-    // 2--NAMED PARAMETERS
+    // 2-- NAMED PARAMETERS
     //single named parameter
     @Query("SELECT e FROM Employee e WHERE e.salary=:salary")
     Employee getEmployeeBySalary(@Param("salary") int salary);
@@ -87,14 +89,18 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     List<Employee> getEmployeeBySalaryOrderByDesc();
 
     //Native Query
+    // with native queries we will use table name
     @Query(value = "SELECT * FROM employees WHERE salary = ?1",nativeQuery = true )
     List<Employee> readEmployeeBySalary(int salary);
 
+
+    // Named Query with Modifying
     @Modifying
     @Transactional
     @Query("UPDATE Employee e SET e.email ='admin@email.com' WHERE e.id=:id")
     void updateEmployeeJPQL(@Param("id") Integer id);
 
+    // Native Query with Modifying
     @Modifying
     @Transactional
     @Query(value = "UPDATE employees SET email='admin@email.com' WHERE id=:id",nativeQuery = true)
