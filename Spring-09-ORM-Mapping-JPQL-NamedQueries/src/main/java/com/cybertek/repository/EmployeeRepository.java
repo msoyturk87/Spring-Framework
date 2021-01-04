@@ -17,6 +17,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
     @Query("SELECT e FROM  Employee e WHERE e.email='dtrail8@tamu.edu'")
     Employee getEmployeeDetail();
+    // name can be different but to understand what to do we are following naming convention
 
     @Query("SELECT e.salary FROM  Employee e WHERE e.lastName='Trail' ")
     Integer getEmployeeSalary();
