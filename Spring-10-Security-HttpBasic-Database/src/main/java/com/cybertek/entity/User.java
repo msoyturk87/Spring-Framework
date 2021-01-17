@@ -12,7 +12,7 @@ import java.util.List;
 @Table(name = "users")
 @NoArgsConstructor
 @Getter
-public class User {
+public class User { // User reserve keyword for postgresql
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
