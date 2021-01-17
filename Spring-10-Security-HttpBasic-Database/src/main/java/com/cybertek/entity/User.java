@@ -30,14 +30,27 @@ public class User { // User reserve keyword for postgresql
         this.roles = roles;
         this.permissions = permissions;
     }
+    // instead of this we can create new class for ROLE and PERMISSION.
+    //  In this case we should make Many To Many RelationShip
 
+    /**
+     * This methods for taking data as a String and returning
+     * all of them
+     * with List
+     * @return List
+     */
     public List<String> getRoleList(){
         if(this.roles.length()>0){
             return Arrays.asList(this.roles.split(","));
         }
         return new ArrayList<>();
     }
-
+    /**
+     * This methods for taking data as a String and returning
+     * all of them
+     * with List
+     * @return List
+     */
     public List<String> getPermissionList(){
         if(this.permissions.length()>0){
             return Arrays.asList(this.permissions.split(","));
