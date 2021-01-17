@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class DataGenerator implements CommandLineRunner {
+public class DataGenerator implements CommandLineRunner { // it will push data before everything "CommandLineRunner"
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
@@ -23,7 +23,7 @@ public class DataGenerator implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) throws Exception { //
 
         //Delete All
         this.userRepository.deleteAll();
