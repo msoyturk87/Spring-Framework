@@ -3,14 +3,15 @@ package com.cybertek.implementation;
 import com.cybertek.entity.Product;
 import com.cybertek.repository.ProductRepository;
 import com.cybertek.service.ProductService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
 
-    public ProductServiceImpl(ProductService productService, ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -43,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProduct(long id) throws Exception {
-        return productRepository.findById(id).orElseThrow(()->new Exception("This product not available"));
+    public Product getProduct(long id)  {
+        return productRepository.findById(id).get();
     }
 }
