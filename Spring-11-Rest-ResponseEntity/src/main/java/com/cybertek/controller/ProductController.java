@@ -31,7 +31,7 @@ public class ProductController {
 
     @GetMapping
     public  ResponseEntity<List<Product>> getProducts(){
-
+        // 1.HTTP Headers
         HttpHeaders responseHttpHeaders = new HttpHeaders();
         responseHttpHeaders.set("Version","Cybertek.v1");
         responseHttpHeaders.set("Operation","Get List");
@@ -47,8 +47,7 @@ public class ProductController {
 
         List<Product> set=productService.createProduct(product);
 
-
-
+        // 3. ResponseEntity header
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .header("Version","Cybertek.v1")
@@ -56,14 +55,22 @@ public class ProductController {
                 .body(set);
 
     }
-
     @DeleteMapping(value = "/{id}")
-    public  List<Product> deleteProduct(@PathVariable("id") long id){
-        return productService.delete(id);
+    public  ResponseEntity<List<Product>> deleteProduct(@PathVariable("id") long id){
+        HttpHeaders responseHttpHeaders = new HttpHeaders();
+        responseHttpHeaders.set("Version","Cybertek.v1");
+        responseHttpHeaders.set("Operation","Delete");
+
+        return ResponseEntity
+                .ok() // status 200
+                .headers(responseHttpHeaders)
+                .body(productService.delete(id));
+
     }
 
     @PutMapping(value = "/{id}")
     public  ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id,@RequestBody Product product){
+        // 2. MultiValueMap
 
         MultiValueMap<String,String> map=new LinkedMultiValueMap<>();
         map.add("Version","CybertekV1");
