@@ -2,10 +2,12 @@ package com.cybertek.entity;
 
 import com.cybertek.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -14,9 +16,8 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "account_details")
+@ToString
 @JsonIgnoreProperties(value = {"state","postalCode"},ignoreUnknown = true)
-//ignoreUnknown true : if property is not known do not try to de/serial
-// it can bu variable level too
 public class Account extends BaseEntity {
 
     private String name;
@@ -32,7 +33,6 @@ public class Account extends BaseEntity {
     private UserRole role = UserRole.USER;
 
     @OneToOne(mappedBy = "account")
-    //İt gives conneciton for User side
     @JsonBackReference
     private User user;
 

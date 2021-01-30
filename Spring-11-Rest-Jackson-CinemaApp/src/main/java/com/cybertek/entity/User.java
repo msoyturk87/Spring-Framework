@@ -14,15 +14,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "user_account")
-@JsonIgnoreProperties(value = {"hibernateLazyInitilazer"},ignoreUnknown = true)
-// if fetching type is lazy spring already added hibernateLazyInitilazer
-// we ignore this field to dont make de/serialization if we dont do this it gives error
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
 
     private String email;
 
-    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY) // it means do it for only set (POST )
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
     private String username;
 
     @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
