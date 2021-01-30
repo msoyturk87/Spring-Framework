@@ -15,6 +15,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "account_details")
 @JsonIgnoreProperties(value = {"state","postalCode"},ignoreUnknown = true)
+//ignoreUnknown true : if property is not known do not try to de/serial
+// it can bu variable level too
 public class Account extends BaseEntity {
 
     private String name;
@@ -30,6 +32,7 @@ public class Account extends BaseEntity {
     private UserRole role = UserRole.USER;
 
     @OneToOne(mappedBy = "account")
+    //İt gives conneciton for User side
     @JsonBackReference
     private User user;
 
