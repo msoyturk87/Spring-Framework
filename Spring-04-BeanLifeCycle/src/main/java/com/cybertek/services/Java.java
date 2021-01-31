@@ -15,5 +15,6 @@ public class Java implements Course {
     public void myDestroyMethod(){
 
         System.out.println("Destroy  Method");
+
     }
 }
