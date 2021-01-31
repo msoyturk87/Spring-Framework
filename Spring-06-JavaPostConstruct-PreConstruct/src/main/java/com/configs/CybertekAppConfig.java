@@ -1,8 +1,8 @@
 package com.configs;
 
 
-import com.services.Java;
-import com.services.Selenium;
+import com.cybertek.services.Java;
+import com.cybertek.services.Selenium;
 import org.springframework.context.annotation.*;
 
 

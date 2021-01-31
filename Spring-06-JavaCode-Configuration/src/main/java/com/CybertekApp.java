@@ -1,7 +1,7 @@
 package com;
 
 import com.configs.CybertekAppConfig;
-import com.interfaces.Course;
+import com.cybertek.interfaces.Course;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

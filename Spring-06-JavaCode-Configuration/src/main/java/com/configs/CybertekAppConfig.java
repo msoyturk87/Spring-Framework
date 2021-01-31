@@ -1,10 +1,10 @@
 package com.configs;
 
 
-import com.interfaces.ExtraSessions;
-import com.services.Java;
-import com.services.OfficeHours;
-import com.services.Selenium;
+import com.cybertek.interfaces.ExtraSessions;
+import com.cybertek.services.Java;
+import com.cybertek.services.OfficeHours;
+import com.cybertek.services.Selenium;
 import org.springframework.context.annotation.*;
 
 

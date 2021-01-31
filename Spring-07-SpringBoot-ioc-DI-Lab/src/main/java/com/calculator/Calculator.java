@@ -2,8 +2,8 @@ package com.calculator;
 
 
 import com.enums.City;
-import com.interfaces.carpetPrices.Carpet;
-import com.interfaces.floorTypes.Floor;
+import com.cybertek.interfaces.carpetPrices.Carpet;
+import com.cybertek.interfaces.floorTypes.Floor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
