@@ -14,6 +14,7 @@ public class CybertekApp {
         // Class name is all CAPITAL we can pass it as a CAPITAL
 
         course.getTeachingHours();
+
         course1.getTeachingHours();
 
     }

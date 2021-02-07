@@ -9,4 +9,6 @@ public class API implements Course {
     public void getTeachingHours() {
         System.out.println("Weekly Teaching API 45 hours");
     }
+
+
 }
