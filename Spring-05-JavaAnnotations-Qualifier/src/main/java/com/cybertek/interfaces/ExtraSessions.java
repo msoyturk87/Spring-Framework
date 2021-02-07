@@ -1,8 +1,5 @@
 package com.cybertek.interfaces;
 
 public interface ExtraSessions {
-
-    int gethours();
-
-
+    int getHours();
 }

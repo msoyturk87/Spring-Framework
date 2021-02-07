@@ -11,6 +11,7 @@ import java.util.Arrays;
 @Component
 public class Java implements Course {
 
+
     @Value("JD1")           // Hard Coded String
     private String batch;
     @Value("${instructor}") // from application.properties

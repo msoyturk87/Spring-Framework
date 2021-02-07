@@ -9,4 +9,5 @@ public class MockInterviewHours implements ExtraSessions {
     public int gethours() {
         return 9;
     }
+
 }
