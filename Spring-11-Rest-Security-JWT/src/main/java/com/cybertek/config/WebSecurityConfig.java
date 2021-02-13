@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         }
 
         protected  void configure(HttpSecurity http) throws Exception{
-
+            // disable for
             http
                     .csrf()
                     .disable()
