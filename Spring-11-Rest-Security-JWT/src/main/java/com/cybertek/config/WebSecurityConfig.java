@@ -2,6 +2,7 @@ package com.cybertek.config;
 
 import com.cybertek.service.SecurityFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         private SecurityFilter securityFilter;
 
        // This is for API
+        @Override
+        @Bean
         public AuthenticationManager authenticationManagerBean() throws Exception{
 
             return super.authenticationManagerBean();

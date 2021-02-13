@@ -18,14 +18,14 @@ public class JWTUtil {
     @Value("${security.jwt.secret-key}")
     private String secret="cybertek";
 
-    public String generateToken(User user, String username){
+    public String generateToken(User user){
 
         // payload = claims
         Map<String,Object> claims=new HashMap<>();
         claims.put("username",user.getUsername());
         claims.put("email",user.getEmail());
 
-        return createToken(claims,username);
+        return createToken(claims,user.getUsername());
 
 
     }
@@ -41,6 +41,8 @@ public class JWTUtil {
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*60*10)) // 10 hours validity
                 .signWith(SignatureAlgorithm.HS256,secret).compact();
     }
+
+
 
     private Claims extractAllClaims(String token){
 
