@@ -12,6 +12,7 @@ public class CybertekAppConfig {
 
 
 
+
     @Bean  // we can use instead of this @Component over Java,Selenium Class
     public Java java(){
         return new Java();

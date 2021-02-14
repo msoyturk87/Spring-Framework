@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 public class Java implements Course {
 
 
+
     @Override
     public void getTeachingHours() {
         System.out.println("Weekly teaching Java hours 56");

@@ -8,5 +8,6 @@ public class Selenium implements Course {
     public void getTeachingHours() {
         System.out.println("Weekly Teaching Selenium  20 hours");
 
+
     }
 }
