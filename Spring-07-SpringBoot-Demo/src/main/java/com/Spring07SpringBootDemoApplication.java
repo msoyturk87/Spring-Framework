@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootApplication
+@SpringBootApplication // it includes ComponentScan-Configuration - EnableAutoConfiguration
 public class Spring07SpringBootDemoApplication {
 
 	public static void main(String[] args) {
@@ -20,7 +20,8 @@ public class Spring07SpringBootDemoApplication {
 
 
 
-
+	// Runner shuld be under top level package to recognize all bean
+	// it recognize all packages and subpackage
 
 
 
