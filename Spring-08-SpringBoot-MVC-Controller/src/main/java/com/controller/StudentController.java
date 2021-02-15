@@ -10,6 +10,7 @@ public class StudentController {
     @RequestMapping("/show")
     public String showForm(){
 
+
         return "home";
     }
 }
