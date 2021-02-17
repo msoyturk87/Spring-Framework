@@ -18,6 +18,7 @@ public class StudentController {
     @GetMapping("/welcome")
     public String homePage(Model model){
 
+
        model.addAttribute("name","Cybertek");
        model.addAttribute("course","MVC");
 

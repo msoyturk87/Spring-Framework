@@ -12,10 +12,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/mentor")
-public class MentorController {
+public class  MentorController {
 
     @GetMapping("/mentor-list")
     public String showTable(Model model){
+
         List<Mentor> mentorList=new ArrayList<>();
         mentorList.add(new Mentor("Mike","Smith",45, Gender.MALE));
         mentorList.add(new Mentor("Tom","Smith",45, Gender.MALE));
