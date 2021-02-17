@@ -18,6 +18,7 @@ public class MentorController {
     @GetMapping("/register")
     public String showForm(Model model){
 
+
         model.addAttribute("mentor",new Mentor());
         List<String> batchList= Arrays.asList("B3","B4","B19","B34","B43","B1");
         model.addAttribute("batchList",batchList);

@@ -22,6 +22,7 @@ public class EmployeeController {
     @GetMapping("/register")
     public String employeeCreate(Model model){
 
+
         model.addAttribute("employee",new Employee());
         model.addAttribute("stateList", DataGenerator.getStateList());
 
