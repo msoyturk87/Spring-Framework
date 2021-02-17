@@ -40,9 +40,11 @@ public class HomeController {
         return "home";
     }
 
+
     @GetMapping("/home/{name}")
     public String pathVariableEx(@PathVariable("name") String name){
         System.out.println("name is "+ name );
+
 
         return "home";
     }
