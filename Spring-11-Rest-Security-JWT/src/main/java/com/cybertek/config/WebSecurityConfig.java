@@ -14,47 +14,41 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private SecurityFilter securityFilter;
 
-         @Autowired
-        private SecurityFilter securityFilter;
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
-       // This is for API
-        @Override
-        @Bean
-        public AuthenticationManager authenticationManagerBean() throws Exception{
+    private static final String[] permittedUrls ={
+            "/authenticate",
+            "/create-user",
+            "/api/p1/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/webjars/**",
+    };
 
-            return super.authenticationManagerBean();
-        }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception{
 
-        protected  void configure(HttpSecurity http) throws Exception{
-            // disable for
-            http
-                    .csrf()
-                    .disable()
-                    .authorizeRequests()
-                    .antMatchers("/authenticate")
-                    .permitAll()
-                    .anyRequest()
-                    .authenticated();
+        http
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers(permittedUrls)
+                .permitAll()
+                .anyRequest()
+                .authenticated();
 
-            http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
-
-        }
-
-
-
-
-
-
-
-
-
-
+        http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
 
-
-
-
-
-
+    }
 }
