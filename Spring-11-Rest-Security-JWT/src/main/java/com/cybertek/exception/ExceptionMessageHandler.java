@@ -25,7 +25,7 @@ public class ExceptionMessageHandler {
         String message = se.getMessage();
         return new ResponseEntity<>(ResponseWrapper.builder().success(false).code(HttpStatus.CONFLICT.value()).message(message).build(),HttpStatus.CONFLICT);
     }
-
+    // if spring throws exception related with AccessDenied it executed ths
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ResponseWrapper> accessDeniedException(AccessDeniedException se){
         String message = se.getMessage();
@@ -48,7 +48,7 @@ public class ExceptionMessageHandler {
         return new ResponseEntity<>(ResponseWrapper.builder().success(false).message("Action failed: An error occurred!").code(HttpStatus.INTERNAL_SERVER_ERROR.value()).build(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
     private Optional<DefaultExceptionMessageDto> getMessageFromAnnotation(Method method) {
-        com.cybertek.annotation.DefaultExceptionMessage defaultExceptionMessage = method.getAnnotation(com.cybertek.annotation.DefaultExceptionMessage.class);
+        com.cybertek.annotations.DefaultExceptionMessage defaultExceptionMessage = method.getAnnotation(com.cybertek.annotations.DefaultExceptionMessage.class);
         if (defaultExceptionMessage != null) {
             DefaultExceptionMessageDto defaultExceptionMessageDto = DefaultExceptionMessageDto
                     .builder()
