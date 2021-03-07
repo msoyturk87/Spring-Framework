@@ -4,10 +4,11 @@ package com.cybertek.controller;
 import com.cybertek.entity.Product;
 import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,10 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
+
     private ProductService productService;
+    Logger logger= LoggerFactory.getLogger(ProductController.class);
+
 
     public ProductController(ProductService productService) {
         this.productService = productService;
@@ -31,16 +35,13 @@ public class ProductController {
     }
 
     @GetMapping
-    public  ResponseEntity<List<Product>> getProducts(){
-        // 1.HTTP Headers
-        HttpHeaders responseHttpHeaders = new HttpHeaders();
-        responseHttpHeaders.set("Version","Cybertek.v1");
-        responseHttpHeaders.set("Operation","Get List");
+    public  List<Product> getProducts(){
+        // Logger
+        logger.info("Before -> Controller:{} - Method:{} - Input Parameter:{}","ProductController","getProducts()");
+        List<Product> list = productService.getProducts();
+        logger.info("After -> Controller:{} - Method:{} - Output Parameters:{}","ProductController","getProducts()",list.toString());
 
-        return ResponseEntity
-                .ok() // status 200
-                .headers(responseHttpHeaders)
-                .body(productService.getProducts());
+        return list;
     }
 
     @PostMapping
@@ -68,6 +69,8 @@ public class ProductController {
                 .body(productService.delete(id));
 
     }
+
+
 
     @PutMapping(value = "/{id}")
     public  ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id,@RequestBody Product product){
