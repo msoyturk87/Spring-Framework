@@ -157,7 +157,7 @@ Logger logger= LoggerFactory.getLogger(ProductController.class);
 
 
 
-    // 5-----  Around   it means Before and After it calculate execute time
+    // 5-----  Around   it means Before and After it calculate execute time (performance)
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
     private void anyPostProductOperation(){}
@@ -171,7 +171,8 @@ Logger logger= LoggerFactory.getLogger(ProductController.class);
         logger.info("Before(Method : {} - Parameters : {}",proceedingJoinPoint.getSignature().toShortString(),proceedingJoinPoint.getArgs());
 
         List<Product> results = new ArrayList<>();
-//        results =(List<Product>) proceedingJoinPoint.proceed();
+        // This method should use inside this to run real one
+        results =(List<Product>) proceedingJoinPoint.proceed();
 
         logger.info("After(Method: {} - Results : {}",proceedingJoinPoint.getSignature().toShortString(),results);
 

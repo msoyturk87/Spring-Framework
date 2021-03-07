@@ -45,16 +45,9 @@ public class ProductController {
     }
 
     @PostMapping
-    public  ResponseEntity<List<Product>> createProduct(@RequestBody Product product){
+    public  List<Product> createProduct(@RequestBody Product product){
 
-        List<Product> set=productService.createProduct(product);
-
-        // 3. ResponseEntity header
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .header("Version","Cybertek.v1")
-                .header("Operation","Create")
-                .body(set);
+        return productService.createProduct(product);
 
     }
     @DeleteMapping(value = "/{id}")
